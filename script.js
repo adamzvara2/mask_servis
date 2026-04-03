@@ -26,13 +26,15 @@ const magneticTargets = document.querySelectorAll(
 // Upraviteľné slová pre headline v hero sekcii.
 const heroWords = ["chaosu", "neporiadku", "starostí", "zbytočností"];
 
-const galleryItems = Array.from({ length: 20 }, (_, index) => {
-  const number = String(index + 1).padStart(2, "0");
+const galleryOrder = [1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 15, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 7, 25, 26, 27, 28, 29, 30, 31, 32];
+
+const galleryItems = galleryOrder.map((itemNumber) => {
+  const number = String(itemNumber).padStart(2, "0");
 
   return {
     src: `assets/gallery/gallery-${number}.jpg`,
     alt: `Ukážka práce MASK SERVIS ${number}`,
-    caption: `Galéria prác ${number}`
+    caption: ""
   };
 });
 
@@ -149,19 +151,16 @@ function renderGallery() {
     image.width = 800;
     image.height = 800;
 
-    const badge = document.createElement("span");
-    badge.textContent = item.caption;
-
-    galleryButton.append(image, badge);
+    galleryButton.append(image);
     galleryGrid.appendChild(galleryButton);
   });
 }
 
 function updateGalleryItemsPerView() {
   if (window.innerWidth >= 760) {
-    galleryItemsPerView = 4;
-  } else {
     galleryItemsPerView = 3;
+  } else {
+    galleryItemsPerView = 2;
   }
 }
 
