@@ -304,15 +304,26 @@
           </div>
 
           <div class="contact-side">
-            <form class="contact-form" aria-labelledby="form-title">
-              <h3 id="form-title">Kontaktný formulár</h3>
-              <p class="form-note">
-                Formulár je vizuálne pripravený. Odoslanie zatiaľ nie je napojené
-                na backend.
+            <form
+              class="contact-form"
+              name="kontakt"
+              method="POST"
+              netlify
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              aria-labelledby="form-title"
+            >
+              <input type="hidden" name="form-name" value="kontakt" />
+              <p class="contact-form-honeypot" hidden>
+                <label for="bot-field">Nevypĺňajte toto pole</label>
+                <input id="bot-field" name="bot-field" type="text" tabindex="-1" autocomplete="off" />
               </p>
 
+              <h3 id="form-title">Kontaktný formulár</h3>
+              <p class="form-note">Napíšte nám stručne, s čím potrebujete pomôcť, a ozveme sa vám čo najskôr.</p>
+
               <label for="name">Meno</label>
-              <input id="name" name="name" type="text" placeholder="Vaše meno" />
+              <input id="name" name="name" type="text" placeholder="Vaše meno" autocomplete="name" required />
 
               <label for="phone">Telefón</label>
               <input
@@ -320,6 +331,7 @@
                 name="phone"
                 type="tel"
                 placeholder="Napríklad 0901 234 567"
+                autocomplete="tel"
               />
 
               <label for="email">Email</label>
@@ -328,6 +340,8 @@
                 name="email"
                 type="email"
                 placeholder="vas@email.sk"
+                autocomplete="email"
+                required
               />
 
               <label for="message">Správa</label>
@@ -336,17 +350,11 @@
                 name="message"
                 rows="5"
                 placeholder="Stručne opíšte, s čím potrebujete pomôcť."
+                required
               ></textarea>
 
-              <!--
-                Sem neskôr doplňte reálne odosielanie formulára.
-                Príklad možností:
-                1. Formspree action + method="POST"
-                2. Vlastný backend endpoint
-                3. Serverless funkcia
-              -->
-              <button class="btn btn-disabled" type="button" aria-disabled="true">
-                Formulár bude čoskoro dostupný
+              <button class="btn btn-cta contact-submit" type="submit">
+                Odoslať správu
               </button>
             </form>
 
@@ -365,11 +373,21 @@
       </section>
     </main>
 
+    <form name="kontakt" netlify data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="kontakt" />
+      <input type="text" name="name" />
+      <input type="tel" name="phone" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
+
     <footer class="site-footer">
       <div class="container footer-grid">
-        <div>
+        <div class="footer-contact">
           <h2>MASK SERVIS</h2>
           <p>Bratislava</p>
+          <p>IČO : 57556687</p>
+          <p>Katarína Szárková</p>
           <a href="tel:+421948195252">0948 195 252</a>
           <a href="mailto:mask.vypratavanie@gmail.com">mask.vypratavanie@gmail.com</a>
         </div>
@@ -383,7 +401,6 @@
 
         <div class="footer-meta">
           <p>&copy; <span id="current-year"></span> MASK SERVIS. Všetky práva vyhradené.</p>
-          <p>One-page web pripravený na jednoduchý deploy cez GitHub Pages.</p>
         </div>
       </div>
     </footer>
