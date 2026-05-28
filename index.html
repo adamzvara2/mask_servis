@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="sk">
-  <head><script async src="https://www.googletagmanager.com/gtag/js?id=AW-18079798418"></script>
+<head><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18079798418"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -8,11 +9,11 @@
 
   gtag('config', 'AW-18079798418');
 </script>
-    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
       MASK SERVIS | Vypratávanie, sťahovanie a upratovacie služby Bratislava
     </title>
+  </head>
     <meta
       name="description"
       content="MASK SERVIS zabezpečuje vypratávanie, sťahovanie, búracie práce a upratovacie práce v Bratislave a okolí. Rýchly kontakt, praktická dohoda a prehľadné služby."
@@ -380,7 +381,7 @@
       </section>
     </main>
 
-    <form name="kontakt" netlify data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <form name="kontakt" netlify data-netlify="true" netlify-honeypot="bot-field" onsubmit="gtag('event', 'conversion', {'send_to': 'AW-18079798418/PY0yClCb3pkcEJKpj61D'});" hidden>
       <input type="hidden" name="form-name" value="kontakt" />
       <input type="text" name="name" />
       <input type="tel" name="phone" />
