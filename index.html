@@ -312,15 +312,17 @@
           </div>
 
           <div class="contact-side">
-            <form
-              class="contact-form"
-              name="kontakt"
-              method="POST"
-              netlify
-              data-netlify="true"
-              netlify-honeypot="bot-field"
-              aria-labelledby="form-title"
-            >
+          <form
+            class="contact-form"
+            name="kontakt"
+            method="POST"
+            action="/thanks.html"
+            netlify
+            data-netlify="true"
+             netlify-honeypot="bot-field"
+             aria-labelledby="form-title"
+              >
+            
               <input type="hidden" name="form-name" value="kontakt" />
               <p class="contact-form-honeypot" hidden>
                 <label for="bot-field">Nevypĺňajte toto pole</label>
@@ -381,7 +383,7 @@
       </section>
     </main>
 
-    <form name="kontakt" netlify data-netlify="true" netlify-honeypot="bot-field" onsubmit="gtag('event', 'conversion', {'send_to': 'AW-18079798418/PY0yClCb3pkcEJKpj61D'});">
+    <form name="kontakt" netlify data-netlify="true" netlify-honeypot="bot-field" onsubmit="gtag('event', 'conversion', {'send_to': 'AW-18079798418/PY0yClCb3pkcEJKpj61D'});"hidden>
       <input type="hidden" name="form-name" value="kontakt" />
       <input type="text" name="name" />
       <input type="tel" name="phone" />
