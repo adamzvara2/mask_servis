@@ -87,55 +87,8 @@ function encodeFormData(formData) {
   return new URLSearchParams([...formData.entries()]).toString();
 }
 
-function setupContactForm() {
-  if (!contactForm) return;
 
-  const submitButton = contactForm.querySelector('button[type="submit"]');
-  const feedback = document.createElement("p");
-  feedback.className = "form-feedback";
-  feedback.hidden = true;
-  contactForm.append(feedback);
-
-  contactForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-
-    if (!contactForm.reportValidity()) return;
-
-    if (submitButton) {
-      submitButton.disabled = true;
-      submitButton.textContent = "Odosiela sa...";
-    }
-
-    feedback.hidden = true;
-    feedback.textContent = "";
-    feedback.classList.remove("is-error");
-
-    try {
-      const formData = new FormData(contactForm);
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encodeFormData(formData)
-      });
-
-      if (!response.ok) {
-        throw new Error(`Form submit failed with status ${response.status}`);
-      }
-
-      window.location.href = "/dakujeme.html";
-    } catch (error) {
-      feedback.textContent = "Odoslanie sa nepodarilo. Skúste to prosím znova alebo nám zavolajte.";
-      feedback.classList.add("is-error");
-      feedback.hidden = false;
-
-      if (submitButton) {
-        submitButton.disabled = false;
-        submitButton.textContent = "Odoslať správu";
-      }
-    }
-  });
-}
-
+   
 function setupMagneticButtons() {
   if (!magneticTargets.length) return;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
