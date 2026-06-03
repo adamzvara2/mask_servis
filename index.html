@@ -282,8 +282,14 @@
               ‹
             </button>
             <div class="gallery-viewport" id="gallery-viewport">
-              <div class="gallery-track" id="gallery-grid" aria-live="polite"></div>
-            </div>
+    <div class="gallery-track" id="gallery-grid" aria-live="polite" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+    <img src="assets/gallery/gallery-01.jpg" alt="Naša práca 1" style="width: 100%; border-radius: 8px;">
+    <img src="assets/gallery/gallery-02.jpg" alt="Naša práca 2" style="width: 100%; border-radius: 8px;">
+    <img src="assets/gallery/gallery-03.jpg" alt="Naša práca 3" style="width: 100%; border-radius: 8px;">
+    <img src="assets/gallery/gallery-04.jpg" alt="Naša práca 4" style="width: 100%; border-radius: 8px;">
+    <img src="assets/gallery/gallery-05.jpg" alt="Naša práca 5" style="width: 100%; border-radius: 8px;">
+</div>
+
             <button class="gallery-nav gallery-next" id="gallery-next" type="button" aria-label="Ďalšie fotografie">
               ›
             </button>
