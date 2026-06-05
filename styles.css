@@ -302,6 +302,7 @@ button {
 }
 
 .hero-visual::after {
+  display: none;
   content: "";
   position: absolute;
   inset: -1.6rem;
