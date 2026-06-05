@@ -312,7 +312,7 @@ button {
 }
 
 .hero-visual img {
-  display: block;
+  display: none;
   width: min(100%, 520px);
   height: auto;
   object-fit: contain;
