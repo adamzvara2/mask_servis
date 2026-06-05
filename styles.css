@@ -302,7 +302,7 @@ button {
 }
 
 .hero-visual::after {
-  display: none;
+  display: none !important;
   content: "";
   position: absolute;
   inset: -1.6rem;
@@ -313,7 +313,7 @@ button {
 }
 
 .hero-visual img {
-  display: none;
+  display: none !important;
   width: min(100%, 520px);
   height: auto;
   object-fit: contain;
