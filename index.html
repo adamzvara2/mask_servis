@@ -1332,7 +1332,38 @@
   function closeModalOutside(e) {
     if (e.target === document.getElementById('modal')) closeModal();
   }
+</script> <script>
+document.getElementById('kontaktForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('.btn-submit');
+  const status = document.getElementById('kontakt-status');
+  btn.disabled = true;
+  btn.textContent = 'Odosielam...';
+
+  const res = await fetch(this.action, {
+    method: 'POST',
+    body: new FormData(this),
+    headers: { 'Accept': 'application/json' }
+  });
+
+  if (res.ok) {
+    status.style.display = 'block';
+    status.style.background = '#d4edda';
+    status.style.color = '#155724';
+    status.textContent = '✓ Správa odoslaná! Ozveme sa čo najskôr.';
+    this.reset();
+    btn.textContent = 'Odoslané ✓';
+  } else {
+    status.style.display = 'block';
+    status.style.background = '#f8d7da';
+    status.style.color = '#721c24';
+    status.textContent = '✗ Chyba. Zavolajte nám na 0948 195 252.';
+    btn.disabled = false;
+    btn.textContent = 'Odoslať správu';
+  }
+});
 </script>
+
 
   <script>
   document.getElementById('modalForm').addEventListener('submit', async function(e) {
